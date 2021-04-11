@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input id="random-number" class="form-control" type="text">
+        
+                    <button id="pin-generator" class="generate-btn">Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input id="pin-number" class="form-control" type="text" value=''>
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div id='seven' class="button">7</div>
+                              <div id='eight' class="button">8</div>
+                              <div id='nine' class="button">9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div id='four' class="button">4</div>
+                              <div id='five' class="button">5</div>
+                              <div id='six' class="button">6</div>
+                            </div>
+                            <div  class="calc-button-row">
+                              <div id='one' class="button">1</div>
+                              <div id='two' class="button">2</div>
+                              <div id='three' class="button">3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div id='backSpace' class="button"><</div>
+                                <div id='zero' class="button">0</div>
+                                <div id='erase' class="button">C</div>
+                            </div>
+                            <div>
+                                <button id="submit" type="submit" class="submit-btn">Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notify-section">
+            <p class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("pin-generator").addEventListener('click',function(){
+            const randNum= Math.floor(Math.random() * 1000) + 1;
+            document.getElementById('random-number').value=randNum;
+            
+            
+        });
+
+        caseCount=[];
+        document.getElementById("zero").addEventListener('click',function(){
+            
+            caseCount=caseCount+'0';
+            document.getElementById('pin-number').value= caseCount;
+
+
+        });
+
+
+        document.getElementById("one").addEventListener('click',function(){
+            caseCount=caseCount+'1';
+            document.getElementById('pin-number').value= caseCount;
+            
+        
+          
+
+         });
+
+        document.getElementById("two").addEventListener('click',function(){
+            
+            caseCount=caseCount+'2';
+            document.getElementById('pin-number').value= caseCount;
+
+        });
+        document.getElementById("three").addEventListener('click',function(){
+            
+            caseCount=caseCount+'3';
+            document.getElementById('pin-number').value= caseCount;
+
+        });
+        document.getElementById("four").addEventListener('click',function(){
+            
+            caseCount=caseCount+'4';
+            document.getElementById('pin-number').value= caseCount;
+
+        });
+        document.getElementById("five").addEventListener('click',function(){
+            
+            caseCount=caseCount+'5';
+            document.getElementById('pin-number').value= caseCount;
+
+        });
+        document.getElementById("six").addEventListener('click',function(){
+            
+            caseCount=caseCount+'6';
+            document.getElementById('pin-number').value= caseCount;
+
+        });
+        document.getElementById("seven").addEventListener('click',function(){
+            caseCount=caseCount+'7';
+            document.getElementById('pin-number').value= caseCount;
+            
+
+        });
+        document.getElementById("eight").addEventListener('click',function(){
+            caseCount=caseCount+'8';
+            document.getElementById('pin-number').value= caseCount;
+            
+
+        });
+        document.getElementById("nine").addEventListener('click',function(){
+            
+            caseCount=caseCount+'9';
+            document.getElementById('pin-number').value= caseCount;
+
+
+        });
+        document.getElementById("backSpace").addEventListener('click',function(){
+            
+            
+            caseCount.remove(1);
+            console.log(caseCount)
+            
+           
+
+        });
+        
+        document.getElementById("erase").addEventListener('click',function(){
+            caseCount=[];
+        
+        });
+
+        document.getElementById("submit").addEventListener('click',function(){
+        const randInput=document.getElementById("random-number");
+        const randCount=parseInt(randInput.value);
+        console.log(randCount)
+        const pinInput=document.getElementById("pin-number");
+        const pinCount=parseInt(pinInput.value);
+        console.log(pinCount)
+        if (randCount==pinCount)
+        {
+            console.log('success')
+        }
+    });
+      
+
+    </script>
+</body>
+</html>
