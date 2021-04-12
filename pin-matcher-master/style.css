@@ -104,3 +104,12 @@ color: #E0B612;
     color: #FF3C5F;
     margin-top: 10px;
 }
+
+#did{
+    display: none;
+}
+
+#didnot{
+    display: none;
+}
+

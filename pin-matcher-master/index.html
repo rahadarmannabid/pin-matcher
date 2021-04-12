@@ -44,15 +44,15 @@
                             </div>
                             <div>
                                 <button id="submit" type="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left"><span id="try">3</span> try left</p>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="didnot" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="did" class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
     <script>
@@ -143,21 +143,49 @@
         
         document.getElementById("erase").addEventListener('click',function(){
             caseCount=[];
+            document.getElementById('pin-number').value= caseCount;
         
         });
 
         document.getElementById("submit").addEventListener('click',function(){
         const randInput=document.getElementById("random-number");
         const randCount=parseInt(randInput.value);
-        console.log(randCount)
         const pinInput=document.getElementById("pin-number");
         const pinCount=parseInt(pinInput.value);
-        console.log(pinCount)
+
+        
+        
+
+        
+    
+        if(tryCount>0)
+        {
+
+            
+        
         if (randCount==pinCount)
         {
-            console.log('success')
+            const Area=document.getElementById("did");
+            Area.style.display='block';
+            const Area2=document.getElementById("didnot");
+            Area2.style.display='none';
         }
+
+        else{
+            tryCount=tryCount-1;
+            console.log(tryCount);
+            const Area=document.getElementById("didnot");
+            Area.style.display='block';
+            document.getElementById('try').innerHTML= tryCount;
+
+
+        }
+    }
     });
+
+    tryCount=3;
+
+
       
 
     </script>
